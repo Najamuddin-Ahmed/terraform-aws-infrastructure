@@ -81,3 +81,12 @@ resource "aws_route_table_association" "rta_private" {
   subnet_id = aws_subnet.private_subnet.id
   route_table_id = aws_route_table.private_route_table.id
 }
+
+# create a ec2 instance
+resource "aws_instance" "my_server" {
+  ami           = "ami-0b6d9d3d33ba97d99"
+  instance_type = "t3.micro" 
+  tags = {
+    Name = "my_server"
+  }
+}
